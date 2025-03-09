@@ -134,7 +134,12 @@ func (k *Keeper) GetOrDeployCosmosCoinERC20Contract(
 	// register the contract to the module store
 	err = k.SetDeployedCosmosCoinContract(ctx, tokenInfo.CosmosDenom, contractAddress)
 
-	// TODO: emit event that contract was deployed
+	// Emit event that contract was deployed
+	ctx.EventManager().EmitEvent(sdk.NewEvent(
+		types.EventTypeDeployedCosmosCoinContract,
+		sdk.NewAttribute(types.AttributeKeyCosmosDenom, tokenInfo.CosmosDenom),
+		sdk.NewAttribute(types.AttributeKeyContractAddress, contractAddress.String()),
+	))
 
 	return contractAddress, err
 }
