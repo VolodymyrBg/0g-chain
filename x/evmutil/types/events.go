@@ -10,6 +10,7 @@ const (
 
 	EventTypeConvertCosmosCoinToERC20   = "convert_cosmos_coin_to_erc20"
 	EventTypeConvertCosmosCoinFromERC20 = "convert_cosmos_coin_from_erc20"
+	EventTypeDeployedCosmosCoinContract = "deployed_cosmos_coin_contract"
 
 	// Event Attributes - Common
 	AttributeKeyReceiver = "receiver"
@@ -18,4 +19,8 @@ const (
 	// Event Attributes - Conversions
 	AttributeKeyInitiator    = "initiator"
 	AttributeKeyERC20Address = "erc20_address"
+
+	// Event Attributes - Contract Deployment
+	AttributeKeyCosmosDenom     = "cosmos_denom"
+	AttributeKeyContractAddress = "contract_address"
 )
